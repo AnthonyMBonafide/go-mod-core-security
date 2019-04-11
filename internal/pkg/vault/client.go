@@ -23,10 +23,13 @@ import (
 
 // Client defines the behavior for interacting with the Vault secret key/value store.
 type Client struct {
+	Authentication string
 }
 
 func (Client) GetValue(key string) (string, error) {
-	security.LoggingClient.Warn("This is an unimplemented method useful for development ONLY")
+	if security.LoggingClient != nil {
+		security.LoggingClient.Warn("This is an unimplemented method useful for development ONLY")
+	}
 	return key, nil
 }
 
